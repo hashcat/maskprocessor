@@ -152,6 +152,15 @@ static void usage_big_print (const char *progname)
   }
 }
 
+static uint32_t is_valid_hex_char (const char c)
+{
+  if ((c >= '0') && (c <= '9')) return 1;
+  if ((c >= 'A') && (c <= 'F')) return 1;
+  if ((c >= 'a') && (c <= 'f')) return 1;
+
+  return 0;
+}
+
 static char hex_convert (char c)
 {
   return (c & 15) + (c >> 6) * 9;
@@ -236,9 +245,21 @@ static size_t mp_expand (const char *in_buf, const size_t in_len, char *out_buf,
       {
         in_pos++;
 
-        if (in_pos == in_len) break;
+        if (in_pos == in_len)
+        {
+          fprintf (stderr, "ERROR: the hex-charset option always expects couples of exactly 2 hexadecimal chars, failed mask: %s\n", in_buf);
+
+          exit (-1);
+        }
 
         char p1 = in_buf[in_pos];
+
+        if ((is_valid_hex_char (p0) == 0) || (is_valid_hex_char (p1) == 0))
+        {
+          fprintf (stderr, "ERROR: invalid hex character detected in mask %s\n", in_buf);
+
+          exit (-1);
+        }
 
         char s[2] = { 0, 0 };
 
@@ -608,9 +629,21 @@ int main (int argc, char *argv[])
       {
         line_pos++;
 
-        if (line_pos == line_len) break;
+        if (line_pos == line_len)
+        {
+          fprintf (stderr, "ERROR: the hex-charset option always expects couples of exactly 2 hexadecimal chars, failed mask: %s\n", line_buf);
+
+          exit (-1);
+        }
 
         char p1 = line_buf[line_pos];
+
+        if ((is_valid_hex_char (p0) == 0) || (is_valid_hex_char (p1) == 0))
+        {
+          fprintf (stderr, "ERROR: invalid hex character detected in mask %s\n", line_buf);
+
+          exit (-1);
+        }
 
         char s[2] = { 0, 0 };
 
