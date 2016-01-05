@@ -5,8 +5,6 @@
 CFLAGS = -W -Wall -std=c99 -O2 -s
 #CFLAGS = -W -Wall -std=c99 -g
 
-#CC_LINUX32        = /opt/hashcat-toolchain/linux32/bin/i686-hashcat-linux-gnu-gcc
-#CC_LINUX64        = /opt/hashcat-toolchain/linux64/bin/x86_64-hashcat-linux-gnu-gcc
 CC_LINUX32        = gcc
 CC_LINUX64        = gcc
 CC_WINDOWS32      = /usr/bin/i686-w64-mingw32-gcc
