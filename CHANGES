@@ -1,3 +1,7 @@
+* v0.73 -> xxx:
+
+- Add a missing sanity check on startup to disallow the use of increment in combination with -s and -l
+
 * v0.72 -> v0.73:
 
 - Open Source the project

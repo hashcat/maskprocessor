@@ -490,6 +490,20 @@ int main (int argc, char *argv[])
     return (-1);
   }
 
+  if (increment && start_at)
+  {
+    fprintf (stderr, "--increment can not be used with --start-at\n");
+
+    return (-1);
+  }
+
+  if (increment && stop_at)
+  {
+    fprintf (stderr, "--increment can not be used with --stop-at\n");
+
+    return (-1);
+  }
+
   /* buffers */
 
   char *mp_sys[6];
