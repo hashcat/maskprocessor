@@ -462,7 +462,7 @@ int main (int argc, char *argv[])
     return (-1);
   }
 
-  if (occur_max == 1)
+  if (occur_max <= 1)
   {
     fprintf (stderr, "--occurrence-max must be set to at least 2\n");
 
@@ -922,7 +922,7 @@ int main (int argc, char *argv[])
 
           int occur_cnt = occurs[(int) c];
 
-          if (occur_cnt >= occur_max) break;
+          if (occur_cnt > occur_max) break;
         }
 
         if (i < len) continue;
