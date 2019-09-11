@@ -805,7 +805,7 @@ int main (int argc, char *argv[])
     seq_start[len] = (off > 0) ? off : 0;
   }
 
-  out_t *out = malloc (sizeof (out_t));
+  out_t *out = (out_t *) malloc (sizeof (out_t));
 
   for (len = min; len <= max; len++)
   {
