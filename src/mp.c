@@ -373,7 +373,7 @@ int main (int argc, char *argv[])
     {"hex-charset",     no_argument,       0, IDX_HEX_CHARSET},
     {"combinations",    no_argument,       0, IDX_COMBINATIONS},
     {"seq-max",         required_argument, 0, IDX_SEQ_MAX},
-    {"occur-max",       required_argument, 0, IDX_OCCUR_MAX},
+    {"occurrence-max",  required_argument, 0, IDX_OCCUR_MAX},
     {"increment",       required_argument, 0, IDX_INCREMENT},
     {"start-at",        required_argument, 0, IDX_START_AT},
     {"stop-at",         required_argument, 0, IDX_STOP_AT},
